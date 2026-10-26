@@ -1,0 +1,71 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hacktoberfest 2026//Week 4 Sprint Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Hacktoberfest 2026 Week 4 Sprint
+X-WR-TIMEZONE:UTC
+BEGIN:VEVENT
+UID:hf26-w4-launch-20261026@hacktoberfest
+DTSTAMP:20261026T160000Z
+DTSTART:20261026T160000Z
+DTEND:20261026T173000Z
+SUMMARY:🚀 Hacktoberfest Week 4 Launch & Brainstorming
+DESCRIPTION:Official launch of Week 4 Open-Source AI Challenge. Select project concept, architecture, and open-source models/tools.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:hf26-w4-scaffold-20261027@hacktoberfest
+DTSTAMP:20261026T160000Z
+DTSTART:20261027T140000Z
+DTEND:20261027T180000Z
+SUMMARY:🛠️ Week 4 Scaffolding & Core Architecture Freeze
+DESCRIPTION:Build project skeleton in Week-4 workspace. Integrate core AI inference (local Gemma/open-weight), CLI or web interface, and test harness.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:hf26-w4-feature-20261028@hacktoberfest
+DTSTAMP:20261026T160000Z
+DTSTART:20261028T140000Z
+DTEND:20261028T180000Z
+SUMMARY:⚡ Week 4 Deep Build & Feature Implementation
+DESCRIPTION:Implement primary features, UI/CLI workflows, and error handling. Verify zero-telemetry / offline capabilities.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:hf26-w4-test-deploy-20261029@hacktoberfest
+DTSTAMP:20261026T160000Z
+DTSTART:20261029T140000Z
+DTEND:20261029T180000Z
+SUMMARY:🧪 Test Suite, Edge Case Auditing & Deployment
+DESCRIPTION:Run Ponytail audit and unit tests. Verify live deployment (Vercel / GitHub Pages / Docker) and clean cache configs.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:hf26-w4-visuals-session-20261030@hacktoberfest
+DTSTAMP:20261026T160000Z
+DTSTART:20261030T140000Z
+DTEND:20261030T180000Z
+SUMMARY:🎨 Xiaohei Visuals & Agent Session Recording
+DESCRIPTION:Generate Xiaohei conceptual diagrams with ian-xiaohei-illustrations. Record and curate agent session transcripts via DevRelay.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:hf26-w4-dev-submission-20261031@hacktoberfest
+DTSTAMP:20261026T160000Z
+DTSTART:20261031T150000Z
+DTEND:20261031T180000Z
+SUMMARY:🏆 DEV Article Write-up & Hacktoberfest Submission
+DESCRIPTION:Publish comprehensive submission on dev.to with #hf26challenge tag, agent session embed, live demo links, and submit to MLH project catalog!
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:hf26-w4-deadline-20261101@hacktoberfest
+DTSTAMP:20261026T160000Z
+DTSTART:20261101T060000Z
+DTEND:20261101T065900Z
+SUMMARY:⏰ HARD DEADLINE: Week 4 Submissions Due (11:59 PM PDT)
+DESCRIPTION:Final cutoff for Week 4 DEV Challenge and sticker qualification.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
