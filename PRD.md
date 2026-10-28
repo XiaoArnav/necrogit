@@ -1,113 +1,86 @@
 # 🎯 Week 4: Product Requirements Document (PRD)
 
-**Project:** Hacktoberfest 2026 — Week 4 Grand Finale  
-**Theme:** Open-Source AI Challenge (Week 4 Finale)  
-**Version:** 1.0.0-draft  
-**Target Platform:** Modern Web (Desktop & Mobile, PWA Offline Ready) & CLI  
+**Project:** Ghost in the Machine (Phantasm)  
+**Theme:** "Ghost in the Machine" — Halloween & Día de los Muertos  
+**Challenge:** Hacktoberfest Open-Source AI Challenge (Week 4 Grand Finale)  
+**Version:** 1.0.0  
+**Target Platform:** Modern Web (Desktop & Mobile, PWA Offline Ready) & POSIX CLI  
 **Author:** Arnav Patel ([@XiaoArnav](https://github.com/XiaoArnav))  
-**Challenge Tag:** `#hf26challenge`  
+**Required Tag:** `#hf26challenge`  
 **License:** MIT  
 
 ---
 
-## 1. Executive Summary & Vision
+## 1. Executive Summary & Product Vision
 
-### 1.1 The Mission
-Hacktoberfest 2026 discarded vanity pull-request metrics in favor of high-value open innovation under the banner: **"AI belongs to everyone."** 
+### 1.1 The Challenge Prompt
+Hacktoberfest 2026 Week 4 is the **Grand Finale**:
+> *"Build something spooky, or something that honors the past in the spirit of Día de los Muertos, with open-weight models or open-source AI."*  
+> (October 26 – October 31, 2026; $2,850 in prizes across 21 winners).
 
-Across Weeks 1 through 3, our projects proved that open-source AI outperforms proprietary cloud monopolies when sovereignty, privacy, and offline reliability matter:
-1. **Week 1 (*WildTrail*):** On-device vision image classification running on trails with zero cell signal.
-2. **Week 2 (*GhostLedger*):** Air-gapped receipt & tax intelligence preserving client NDAs with local Gemma 2.
-3. **Week 3 (*Compline*):** A monastic, candlelit sleep sanctuary running locally with hypnagogic word decrescendo.
+### 1.2 Product Vision: Ghost in the Machine
+As modern technology rushes forward, it leaves behind an eerie trail of abandoned software, deprecated codebases, and forgotten digital memories. Meanwhile, proprietary cloud AI platforms exploit human grief and nostalgia by commercializing digital avatars behind subscription paywalls and surveilled databases.
 
-**Week 4 represents the Grand Finale:** A culmination sprint synthesizing sovereign intelligence, local-first execution, and zero-marginal-cost edge computing into a production-grade utility.
+**Ghost in the Machine (Phantasm)** restores dignity, contemplation, and playful gothic horror to computing:
+- **Haunted Terminal (Séance CLI):** Possesses the developer's shell, murmuring eerie gothic reflections upon commands, compilation failures, and historical git diffs.
+- **Digital Ofrenda (Memory Altar):** A sovereign, candlelit altar celebrating departed open-source technologies, lost projects, and personal memories with marigold-illuminated typography.
+- **Resurrection Engine:** Channels deceased architectures (LISP machines, Commodore 64 BASIC, Turbo Pascal, punch cards) into functioning code and poetic folklore.
+- **Air-Gapped Sovereignty:** 100% offline, zero-telemetry, zero-cost execution with **Google Gemma 2** running on consumer silicon.
 
 ```mermaid
 flowchart LR
     W1["🌱 Week 1: Touch Grass<br/>(WildTrail - CLIP Vision)"] --> W2["💼 Week 2: Side Hustle<br/>(GhostLedger - Tax Intelligence)"]
     W2 --> W3["🦥 Week 3: Slow & Steady<br/>(Compline - Sleep Sanctuary)"]
-    W3 --> W4["👑 Week 4: Grand Finale<br/>(Sovereign Local-First Utility)"]
+    W3 --> W4["👻 Week 4: Ghost in the Machine<br/>(Phantasm - Digital Ofrenda & Séance)"]
 ```
 
 ---
 
 ## 2. Target Audience & User Personas
 
-### 2.1 Persona A: The Sovereign Builder ("Devon", 29)
-* **Role:** Full-stack engineer & indie hacker.
-* **Pain Point:** Frustrated by metered cloud AI bills ($0.03–$0.08/call), vendor rate limits, and transmitting sensitive private data across third-party networks.
-* **Need:** A zero-dependency, local-first open-weight model integration that runs effortlessly on consumer laptops without cloud token costs.
+### 2.1 Persona A: The Nostalgic Systems Hacker ("Dante", 32)
+* **Profile:** Senior systems engineer and open-source archivist.
+* **Pain Point:** Saddened by the rapid obsolescence of foundational software and tired of sterile, corporate AI chat interfaces.
+* **Desire:** A haunted, poetic terminal companion that remembers computing history and breathes spectral life into deprecated tools.
 
-### 2.2 Persona B: The Air-Gapped Practitioner ("Meera", 34)
-* **Role:** Field researcher & consultant working in privacy-sensitive or offline environments.
-* **Pain Point:** Closed SaaS AI applications fail completely when internet connectivity drops or enterprise compliance restricts cloud telemetry.
-* **Need:** An application that boots instantly in airplane mode, caches its entire runtime client-side, and guarantees 100% data locality.
-
----
-
-## 3. Product Scope & Core Capabilities
-
-### 3.1 Local Open-Weight Inference Engine
-* **Primary AI Core:** Direct integration with Google's open-weight **Gemma 2** (`gemma2:2b` / `gemma2:9b`) via local Ollama (`http://localhost:11434`).
-* **Deterministic Fallback Pipeline:** Zero downtime architecture. If Ollama is offline or uninstalled, a client-side heuristic engine executes seamlessly without blocking user workflows.
-* **Structured JSON / Text Generation:** Enforced schema parsing to eliminate hallucinated structure.
-
-### 3.2 Dual-Interface Architecture
-* **Web Surface:** Clean, responsive, dark/light theme-aware web interface built with modern vanilla HTML5/CSS3/ES modules (no heavy framework overhead).
-* **CLI / Headless Surface:** Unix pipe-friendly terminal tool supporting stdin/stdout streaming and quiet mode (`--quiet`, `--json`).
-
-### 3.3 Zero-Telemetry & Local Persistence
-* **Data Sovereignty:** All user prompts, history, and generated outputs persist strictly in the browser (`localStorage` / `IndexedDB`) or local filesystem.
-* **Air-Gapped Guarantee:** Zero tracking beacons, third-party analytics scripts, or external cloud LLM dependencies.
-
-### 3.4 Visual Identity & Conceptual Assets
-* Fully illustrated with **Ian Xiaohei** minimalist hand-drawn conceptual artwork (16:9, clean white background, deadpan Xiaohei performing core mechanical metaphors).
+### 2.2 Persona B: The Sovereign Memory Keeper ("Ximena", 26)
+* **Profile:** Digital archivist and cultural preservationist.
+* **Pain Point:** Refuses to upload family memories, deceased relatives' writings, or cultural histories to corporate cloud AI vendors that retain and monetize private data.
+* **Desire:** An air-gapped digital ofrenda that runs strictly on local device storage, generating reverent commemorations and folklore with Google Gemma 2.
 
 ---
 
-## 4. Non-Functional Requirements (NFR)
+## 3. Functional Requirements & Feature Sets
 
-| Metric | Requirement | Target |
+### 3.1 The Haunted Terminal (POSIX Séance)
+* **CLI Interface (`app/cli.py`):** Accepts standard unix pipes (`cat error.log | python3 app/cli.py --haunt`) and command line flags.
+* **Spectral Commentary:** Analyzes code smells, failed build logs, and commit histories, returning eerie, evocative aphorisms formatted with ANSI spectral glows.
+* **Dead Language Séancist:** Prompts Gemma 2 with structured archetypes of deceased programming paradigms (APL, ALGOL, Forth, COBOL).
+
+### 3.2 The Digital Ofrenda (Web Altar)
+* **Candlelit Marigold Aesthetic:** High-contrast dark gothic canvas with glowing amber candlelight and marigold petals floating across the viewport.
+* **Altar Offerings:** Users place digital offerings (a snippet of legacy code, a photo, a memory paragraph) onto the altar.
+* **Commemorative Elegy Generator:** Google Gemma 2 weaves an unhurried, respectful memorial narrative that celebrates the offering's impact.
+
+### 3.3 Zero-Dependency Standard Library Core
+* Python 3.9+ backend uses strictly standard libraries (`http.server`, `urllib.request`, `json`, `dataclasses`).
+* No `pip install`, no node build steps, zero third-party telemetry.
+
+---
+
+## 4. Non-Functional Requirements (NFRs)
+
+| Attribute | Specification | Validation Target |
 | :--- | :--- | :--- |
-| **Local Inference Latency** | First token response with local Gemma 2 | `< 450ms` on Apple Silicon / modern CPU |
-| **Offline Startup** | Time to interactive with zero internet connection | `< 100ms` |
-| **External Dependencies** | Python backend dependencies | Standard Library only (`0 pip packages`) |
-| **Bundle Size** | Frontend static assets (excluding fonts/images) | `< 85 KB` |
-| **Code Coverage** | Unit & behavioral test suite pass rate | `100% (15/15 passing)` |
+| **Data Privacy** | 100% Air-Gapped | Zero network egress to third-party domains |
+| **Inference Time** | Local Gemma 2 Streaming | First token rendered `< 500ms` on Apple Silicon |
+| **Fallback Latency** | Offline Heuristic Engine | Instant response (`< 15ms`) if Ollama is absent |
+| **Portability** | Multi-OS Support | macOS, Linux, Windows (WSL2 / PowerShell) |
 
 ---
 
-## 5. Target Prize Tracks & Categories
+## 5. Target Prize Categories
 
-1. **Overall Winner ($250 USD + DEV++ Membership):**
-   * High-craft, end-to-end execution combining thoughtful writing, real-world utility, and complete open-source transparency.
-2. **Featured Track: Best Use of Gemma ($200 USD):**
-   * Deep integration with Google's Gemma 2 open-weight model family, highlighting local streaming, on-device reasoning, and zero marginal cost.
-3. **Partner Track: Sentry Agent Tracing / Temporal ($100 USD):**
-   * Observability and durable execution pipelines showing step-by-step model reasoning and trace verification.
-
----
-
-## 6. Milestones & Release Schedule
-
-```mermaid
-gantt
-    title Week 4 Sprint Roadmap
-    dateFormat  YYYY-MM-DD
-    section Scaffolding
-    Repository & Docs Initialization    :done, 2026-10-26, 1d
-    section Core Build
-    Local Gemma Engine & Pipeline        :active, 2026-10-27, 2d
-    Interactive UI & Multi-Surface       :2026-10-28, 2d
-    section Verification
-    Test Suite & Edge Case Auditing      :2026-10-29, 1d
-    Production Deployment & Vercel Sync  :2026-10-30, 1d
-    section Submission
-    DEV Article & Session Embedding      :2026-10-31, 1d
-```
-
-* **Oct 26:** Scaffolding, repository configuration, PRD, ARCHITECTURE, and ESSENTIAL runbook.
-* **Oct 27–28:** Core inference engine, prompt harness, and user interface.
-* **Oct 29:** Unit tests, Ponytail lean audit, and edge deployment verification.
-* **Oct 30:** Xiaohei illustrations, demo recording, and DevRelay session transcript generation.
-* **Oct 31:** Final submission on dev.to with `#hf26challenge` before 11:59 PM PDT deadline.
+* 🏆 **Overall Winner ($250 USD + DEV++ Membership)**
+* ⭐ **Featured Category: Best Use of Gemma ($200 USD):** Local on-device inference using Google's Gemma 2 open-weight model family.
+* 🤝 **Partner Categories:** Sentry Agent Tracing, Temporal, DigitalOcean.
