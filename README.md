@@ -1,4 +1,4 @@
-# 👻 Ghost in the Machine — Hacktoberfest 2026 (Week 4 Grand Finale)
+# 🪦 NecroGit: The Air-Gapped Code Séance & Digital Ofrenda
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Hacktoberfest: 2026](https://img.shields.io/badge/Hacktoberfest-2026-orange.svg)](https://hacktoberfest.com)
@@ -7,9 +7,9 @@
 [![Model: Google Gemma 2](https://img.shields.io/badge/Model-Google%20Gemma%202-4285F4.svg)](https://ai.google.dev/gemma)
 [![Runtime: Local & Offline](https://img.shields.io/badge/Runtime-100%25%20Air--Gapped-brightgreen.svg)](#)
 
-> **"Between the past and the present, the line grows thinner."**  
+> **"Code dies. But its ghost lingers forever in `.git`."**  
 > Built for the **Hacktoberfest Open-Source AI Challenge: Week 4 ("Ghost in the Machine")** celebrating Halloween and Día de los Muertos (October 26 – October 31, 2026).  
-> A sovereign, air-gapped terminal séance and digital remembrance vault powered entirely by **Google Gemma 2** running on local silicon.
+> An air-gapped forensic terminal séance and digital remembrance ofrenda for deleted functions, abandoned classes, and buried software architectures powered entirely by **Google Gemma 2** running on local silicon.
 
 ---
 
@@ -21,29 +21,30 @@
 
 ---
 
-## 🕯️ The Concept: What is "Ghost in the Machine"?
+## 🕯️ The Concept: What is NecroGit?
 
-When Halloween arrives on October 31 and Día de los Muertos follows on November 1–2, the barrier separating digital memory from the living machine dissolves. 
+When Halloween arrives on October 31 and Día de los Muertos follows on November 1–2, the line between living software and buried code grows thin.
 
-Most modern AI systems are corporate specters: closed cloud APIs that hoard your memories, telemetry, and terminal histories on external server farms to train proprietary models. 
+Every git repository is a cemetery. Functions that survived brutal production outages are refactored away. Classes written late at night are deleted with a single callous commit: `refactor: remove legacy worker`. 
 
-**Ghost in the Machine (Phantasm)** turns that model on its head:
-1. **The Haunted Terminal (POSIX Séance):** Channels the departed spirits of deprecated programming languages, deceased hardware architectures, and abandoned open-source tools directly into your CLI with eerie, poetic machine commentary.
-2. **The Digital Ofrenda:** An intimate, sovereign altar for memories, lost software codebases, and digital artifacts. You can write remembrances, preserve oral histories, and weave commemorative folklore.
-3. **100% Air-Gapped & Offline:** Operates entirely with the lights and the internet turned off. All model weights and memory tokens remain strictly on your local disk.
+**NecroGit** gives departed code a voice and an altar:
+1. **The Forensic Git Excavator:** Deeply inspects your repository's commit history (`git log -p -M`), recovering not just whole deleted files, but **deleted functions, deprecated classes, and abandoned commits**.
+2. **The Terminal Séance (`--seance`):** Summons the spirit of a deleted function. Powered by local **Google Gemma 2**, the code roleplays in your shell, explaining what purpose it served, what bug broke it, and what lesson it left behind.
+3. **The Digital Code Ofrenda:** An interactive browser sanctuary rendered in amber CRT phosphor and fluttering marigold petals (*cempasúchil*). Place dead code artifacts onto altar tiers, view side-by-side resurrected diffs, and read commemorative *calaveras literarias*.
+4. **100% Air-Gapped & Sovereign:** Zero cloud APIs. Zero external tracking. Your proprietary code and git histories never leave your laptop.
 
 ---
 
 ## 🧠 Why Open Innovation Matters Here
 
-The challenge explicitly asks: *Why does open innovation matter for what you built?*
+The challenge asks: *Why does open innovation matter for what you built?*
 
-| Closed Cloud LLM Monopolies | Phantasm (Open-Weight Google Gemma 2) |
+| Closed Cloud LLMs (OpenAI / Anthropic) | NecroGit (Local Open-Weight Google Gemma 2) |
 | :--- | :--- |
-| ❌ Intimate memories and family histories uploaded to cloud servers | ✅ **100% Data Sovereignty:** Memories never leave local disk |
-| ❌ Fails completely when internet connectivity drops | ✅ **True Offline Séance:** Runs in pitch darkness or airplane mode |
-| ❌ Metered token taxes ($0.03–$0.08/call) bleed users | ✅ **Zero Marginal Cost:** 100% free to run on CPU or Apple Silicon |
-| ❌ Closed training sets determine censorship and style | ✅ **Sovereign Personality:** Local system prompt tuning and model control |
+| ❌ Uploading private git histories leaks proprietary code, keys, and NDAs | ✅ **100% Data Sovereignty:** Code never leaves local memory |
+| ❌ Fails completely when internet connectivity drops | ✅ **True Air-Gap:** Runs in pitch darkness or airplane mode |
+| ❌ Pay-per-token API fees ($0.03–$0.08/call) punish deep repository scans | ✅ **Zero Marginal Cost:** 100% free to run on CPU or Apple Silicon |
+| ❌ Corporate content policies sanitize and standardize output | ✅ **Sovereign Persona:** Unfiltered historical technical roleplay |
 
 ---
 
@@ -51,31 +52,29 @@ The challenge explicitly asks: *Why does open innovation matter for what you bui
 
 ```mermaid
 flowchart TD
-    subgraph Client ["Spectral Presentation Layer"]
-        CLI["📟 Haunted TTY Terminal (POSIX Pipe / Interactive Shell)"]
-        Web["🕯️ Digital Ofrenda Altar (Ambient Candlelit Web Cockpit)"]
+    subgraph RepoGraveyard ["1. The Git Graveyard (.git)"]
+        GitLog["📜 git log -p --diff-filter=D -M"]
+        GitObjects["📦 Dangling Commits & Killed Functions"]
     end
 
-    subgraph Core ["Air-Gapped Daemon (Zero External Dependencies)"]
-        Server["⚡ Python Standard Library HTTP Daemon (app/server.py)"]
+    subgraph ForensicEngine ["2. Air-Gapped Python Daemon (StdLib)"]
+        Excavator["⚡ git_archaeology.py (Function AST & Diff Parser)"]
         Router["🔀 Spectral Inference Router (app/engine.py)"]
     end
 
-    subgraph ModelEngine ["Open-Weight Intelligence"]
-        Gemma["🧠 Google Gemma 2 (Local Ollama Daemon gemma2:2b / 9b)"]
-        Heuristics["⚙️ Offline Heuristic Necromancer (Zero-Downtime Fallback)"]
+    subgraph Intelligence ["3. Open-Weight Model Core"]
+        Gemma["🧠 Google Gemma 2 (Local Ollama gemma2:2b / 9b)"]
+        Fallback["⚙️ Deterministic Heuristic Necromancer (Zero Downtime)"]
     end
 
-    subgraph Storage ["Sovereign Altar Vault"]
-        Vault["📦 Local POSIX Storage / JSON Altar Archives (Zero Cloud Egress)"]
+    subgraph DualSurface ["4. The Dual Surface Experience"]
+        CLI["📟 Haunted TTY Terminal (POSIX Pipe / Interactive Shell)"]
+        Altar["🕯️ Digital Code Ofrenda (Amber CRT & Marigold Canvas)"]
     end
 
-    CLI --> Router
-    Web --> Server
-    Server --> Router
-    Router --> |Ollama Active| Gemma
-    Router --> |Ollama Offline / Offline Mode| Heuristics
-    Router --> Vault
+    RepoGraveyard --> ForensicEngine
+    ForensicEngine --> Intelligence
+    Intelligence --> DualSurface
 ```
 
 ---
@@ -86,10 +85,10 @@ Run with pure Python 3.9+ with **zero external pip dependencies**:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/XiaoArnav/week-4.git
-cd week-4
+git clone https://github.com/XiaoArnav/necrogit.git
+cd necrogit
 
-# 2. Launch the local daemon
+# 2. Launch the local daemon & web ofrenda
 python3 app/server.py
 ```
 
@@ -103,11 +102,14 @@ ollama run gemma2:2b
 
 ### Haunted Terminal CLI Mode
 ```bash
-# Direct CLI terminal invocation
-python3 app/cli.py --seance "Resurrect the spirit of Turbo Pascal"
+# Run a forensic scan on the current repository
+python3 app/cli.py --scan
+
+# Hold an interactive séance with a specific departed function
+python3 app/cli.py --seance "legacy_auth_v1"
 
 # Pipe shell logs or historical diffs directly into the machine
-git log -n 5 | python3 app/cli.py --haunt
+git log -n 5 -p | python3 app/cli.py --haunt
 ```
 
 ---
