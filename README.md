@@ -90,6 +90,10 @@ cd necrogit
 
 # 2. Launch the local daemon & web ofrenda
 python3 app/server.py
+# (Or use the quick launcher: chmod +x run.sh && ./run.sh)
+
+# 3. Run the zero-dependency test suite
+python3 -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 Then navigate to [`http://localhost:7777`](http://localhost:7777) in your browser.

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NecroGit // Forensic Code Séance & Digital Remembrance Ofrenda</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕯️</text></svg>">
+</head>
+<body class="mode-ofrenda">
+  <!-- CRT Screen Glare & Scanlines Overlay -->
+  <div class="crt-overlay"></div>
+  <div class="crt-scanline"></div>
+
+  <!-- Background Particle Canvas for Floating Marigold Petals -->
+  <canvas id="petalCanvas"></canvas>
+
+  <div class="app-container">
+    <!-- Top Navigation & Telemetry Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand">
+          <span class="brand-icon">🕯️</span>
+          <div class="brand-text">
+            <h1 class="brand-title">NECROGIT</h1>
+            <p class="brand-subtitle">The Air-Gapped Git Séance &amp; Digital Ofrenda</p>
+          </div>
+        </div>
+        <div class="repo-badge" id="repoBadge">
+          <span class="status-indicator"></span>
+          <span class="repo-name" id="repoName">Excavating repository...</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- View Mode Switcher -->
+        <div class="control-group">
+          <button id="viewToggleBtn" class="btn btn-secondary" title="Toggle between Amber Phosphor CRT and Candlelit Altar">
+            <span class="btn-icon">📺</span>
+            <span id="viewModeText">CRT Mode</span>
+          </button>
+        </div>
+
+        <!-- Procedural Web Audio Switcher -->
+        <div class="control-group">
+          <button id="audioToggleBtn" class="btn btn-secondary" title="Toggle procedural CRT hum & séance chimes">
+            <span class="btn-icon">🔇</span>
+            <span id="audioModeText">Audio: Muted</span>
+          </button>
+        </div>
+
+        <!-- Quick Refresh -->
+        <button id="refreshGraveyardBtn" class="btn btn-icon-only" title="Re-excavate Git Cemetery">🔄</button>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="workspace">
+      <!-- Left Column: Cemetery Index & Ofrenda Shelves -->
+      <section class="cemetery-panel">
+        <div class="panel-header">
+          <div class="panel-title-wrap">
+            <h2 class="panel-title">🪦 The Buried Code Graveyard</h2>
+            <span class="entity-count-badge" id="entityCount">0 artifacts</span>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All Spirits</button>
+            <button class="filter-btn" data-filter="function">Functions</button>
+            <button class="filter-btn" data-filter="class">Classes</button>
+            <button class="filter-btn" data-filter="file">Whole Files</button>
+          </div>
+        </div>
+
+        <!-- Scrollable Graveyard List -->
+        <div class="graveyard-list" id="graveyardList">
+          <div class="empty-state">
+            <div class="spinner"></div>
+            <p>Excavating git object graph for deleted code...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: The Altar & Live Séance Terminal -->
+      <section class="seance-panel">
+        <!-- Altar Shrine Banner -->
+        <div class="altar-shrine">
+          <div class="candle left-candle">
+            <div class="flame"></div>
+            <div class="wax"></div>
+          </div>
+          <div class="shrine-header">
+            <div class="calaca-icon">💀</div>
+            <div class="shrine-text">
+              <h3 id="altarEntityTitle">Select an entity to invoke a séance</h3>
+              <p id="altarEntitySubtitle">Air-gapped local remembrance for deleted git objects</p>
+            </div>
+          </div>
+          <div class="candle right-candle">
+            <div class="flame"></div>
+            <div class="wax"></div>
+          </div>
+        </div>
+
+        <!-- Terminal Output Screen -->
+        <div class="terminal-screen" id="terminalScreen">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title" id="terminalStatus">SEANCE PROTOCOL // STANDBY</div>
+            <div class="terminal-meta" id="terminalMeta">MODEL: OFFLINE</div>
+          </div>
+
+          <!-- Typewriter Output Box -->
+          <div class="terminal-body" id="terminalBody">
+            <div class="welcome-text">
+              <pre class="ascii-art">
+   .---.
+  /     \     "Speak, living programmer.
+ | () () |     Choose a deceased function from the graveyard to begin the séance.
+  \  _  /      Their ghost lingers in the loose git objects..."
+   `---'
+              </pre>
+              <p class="instruction-line">🕯️ Click on any deceased artifact on the left to awaken its spirit.</p>
+              <p class="instruction-sub">All inference runs 100% locally via Google Gemma 2 or built-in deterministic heuristics. Zero cloud egress.</p>
+            </div>
+          </div>
+
+          <!-- Terminal Action Footer -->
+          <div class="terminal-footer">
+            <div class="offering-shelf">
+              <button id="offerMarigoldBtn" class="btn btn-offering" disabled>
+                <span>🌼</span> Place Marigold (<span id="marigoldCount">0</span>)
+              </button>
+              <button id="offerMezcalBtn" class="btn btn-offering" disabled>
+                <span>🍶</span> Pour Mezcal (<span id="mezcalCount">0</span>)
+              </button>
+              <button id="viewDiffBtn" class="btn btn-secondary" disabled>
+                <span>📜</span> Resurrect Code
+              </button>
+            </div>
+            <button id="invokeSeanceBtn" class="btn btn-primary" disabled>
+              <span>🕯️</span> Awaken Spirit
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Status Bar -->
+    <footer class="app-footer">
+      <div class="footer-item">
+        <span class="footer-label">ENGINE:</span>
+        <span class="footer-value" id="engineStatus">Checking Ollama...</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">SOVEREIGNTY:</span>
+        <span class="footer-value highlight">100% AIR-GAPPED (0 B egress)</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">LINES BURIED:</span>
+        <span class="footer-value" id="totalLinesBuried">0</span>
+      </div>
+      <div class="footer-item">
+        <span class="footer-label">HACKTOBERFEST:</span>
+        <span class="footer-value">WEEK 4 // GHOST IN THE MACHINE</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal for Resurrected Code / Unified Diff -->
+  <div class="modal-backdrop" id="codeModal" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">📜</span>
+          <h3 class="modal-title" id="modalEntityName">Resurrected Code Artifact</h3>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" id="tabCodeBtn">Last Living Code</button>
+        <button class="modal-tab-btn" id="tabDiffBtn">Fatal Git Diff</button>
+      </div>
+      <div class="modal-body">
+        <pre class="code-view" id="modalCodeContent">Loading artifact...</pre>
+      </div>
+      <div class="modal-footer">
+        <span class="modal-meta" id="modalCommitMeta">Commit info</span>
+        <button class="btn btn-secondary" id="modalCopyBtn">📋 Copy Code</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
