@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Hacktoberfest: 2026](https://img.shields.io/badge/Hacktoberfest-2026-orange.svg)](https://hacktoberfest.com)
 [![DEV Challenge: Ghost in the Machine](https://img.shields.io/badge/DEV%20Challenge-Ghost%20in%20the%20Machine-black.svg)](https://dev.to/challenges/hacktoberfest-week4-2026-10-26)
+[![DEV Post: Published](https://img.shields.io/badge/DEV%20Post-Read%20Submission-0A0A0A.svg?logo=devdotto&logoColor=white)](https://dev.to/polymath_arnav/john-carmack-deleted-fastinversesqrt-in-1999-in-commit-c51b980a-he-replaced-0x5f3759df-we-457e)
 [![Tag: #hf26challenge](https://img.shields.io/badge/Tag-%23hf26challenge-FF7518.svg)](https://dev.to/t/hf26challenge)
 [![Model: Google Gemma 2](https://img.shields.io/badge/Model-Google%20Gemma%202-4285F4.svg)](https://ai.google.dev/gemma)
 [![Runtime: Local & Offline](https://img.shields.io/badge/Runtime-100%25%20Air--Gapped-brightgreen.svg)](#)
@@ -162,6 +163,7 @@ git log -n 5 -p | python3 app/cli.py --haunt
 | **[`ARCHITECTURE.md`](ARCHITECTURE.md)** | Technical design, inference router, sequence diagrams, and air-gapped security boundary |
 | **[`ESSENTIAL.md`](ESSENTIAL.md)** | Operational runbook, port assignments, Ollama setup, and troubleshooting cheatsheet |
 | **[`eval/BENCHMARK_RESULTS.md`](eval/BENCHMARK_RESULTS.md)** | Empirical benchmark: 4.0x AST granularity gain, 100% commit fidelity, 0B egress |
+| **[Official DEV Challenge Article](https://dev.to/polymath_arnav/john-carmack-deleted-fastinversesqrt-in-1999-in-commit-c51b980a-he-replaced-0x5f3759df-we-457e)** | Official Hacktoberfest Week 4 submission article on DEV |
 | **[Recorded Agent Session](https://dev.to/agent_sessions/necrogit-building-an-air-gapped-code-seance-remembrance-ofrenda-with-gemma-2-6xp21c)** | Full transparent building, debugging, and verification session on DEV |
 
 ---
