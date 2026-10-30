@@ -170,6 +170,7 @@ git log -n 5 -p | python3 app/cli.py --haunt
 | **[`ARCHITECTURE.md`](ARCHITECTURE.md)** | Technical design, inference router, sequence diagrams, and air-gapped security boundary |
 | **[`ESSENTIAL.md`](ESSENTIAL.md)** | Operational runbook, port assignments, Ollama setup, and troubleshooting cheatsheet |
 | **[`eval/BENCHMARK_RESULTS.md`](eval/BENCHMARK_RESULTS.md)** | Empirical benchmark: 4.0x AST granularity gain, 100% commit fidelity, 0B egress |
+| **[Recorded Agent Session](https://dev.to/agent_sessions/necrogit-building-an-air-gapped-code-seance-remembrance-ofrenda-with-gemma-2-6xp21c)** | Full transparent building, debugging, and verification session on DEV |
 | **[`hacktoberfest-week4-schedule.ics`](hacktoberfest-week4-schedule.ics)** | Direct Notion Calendar / Google Calendar sync for Week 4 milestones |
 
 ---
