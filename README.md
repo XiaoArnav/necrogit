@@ -7,10 +7,11 @@
 [![Model: Google Gemma 2](https://img.shields.io/badge/Model-Google%20Gemma%202-4285F4.svg)](https://ai.google.dev/gemma)
 [![Runtime: Local & Offline](https://img.shields.io/badge/Runtime-100%25%20Air--Gapped-brightgreen.svg)](#)
 [![Live Demo: GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-FF7500.svg)](https://xiaoarnav.github.io/necrogit/)
+[![Live Mirror: Vercel](https://img.shields.io/badge/Live%20Mirror-Vercel-000000.svg?logo=vercel&logoColor=white)](https://necrogit.vercel.app)
 
 > **"Code dies. But its ghost lingers forever in `.git`."**  
 > Built for the **Hacktoberfest Open-Source AI Challenge: Week 4 ("Ghost in the Machine")** celebrating Halloween and Día de los Muertos (October 26 – October 31, 2026).  
-> **Live 1-Click Interactive Altar:** [https://xiaoarnav.github.io/necrogit/](https://xiaoarnav.github.io/necrogit/)  
+> **Live 1-Click Interactive Altar:** [https://xiaoarnav.github.io/necrogit/](https://xiaoarnav.github.io/necrogit/) *(Backup Mirror: [https://necrogit.vercel.app](https://necrogit.vercel.app))*  
 > An air-gapped forensic terminal séance and digital remembrance ofrenda for deleted functions, abandoned classes, and buried software architectures powered entirely by **Google Gemma 2** running on local silicon.
 
 ---
