@@ -6,9 +6,11 @@
 [![Tag: #hf26challenge](https://img.shields.io/badge/Tag-%23hf26challenge-FF7518.svg)](https://dev.to/t/hf26challenge)
 [![Model: Google Gemma 2](https://img.shields.io/badge/Model-Google%20Gemma%202-4285F4.svg)](https://ai.google.dev/gemma)
 [![Runtime: Local & Offline](https://img.shields.io/badge/Runtime-100%25%20Air--Gapped-brightgreen.svg)](#)
+[![Live Demo: GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-FF7500.svg)](https://xiaoarnav.github.io/necrogit/)
 
 > **"Code dies. But its ghost lingers forever in `.git`."**  
 > Built for the **Hacktoberfest Open-Source AI Challenge: Week 4 ("Ghost in the Machine")** celebrating Halloween and Día de los Muertos (October 26 – October 31, 2026).  
+> **Live 1-Click Interactive Altar:** [https://xiaoarnav.github.io/necrogit/](https://xiaoarnav.github.io/necrogit/)  
 > An air-gapped forensic terminal séance and digital remembrance ofrenda for deleted functions, abandoned classes, and buried software architectures powered entirely by **Google Gemma 2** running on local silicon.
 
 ---
@@ -133,6 +135,7 @@ git log -n 5 -p | python3 app/cli.py --haunt
 | **[`PRD.md`](PRD.md)** | Product Requirements Document: problem space, personas, and Día de los Muertos specs |
 | **[`ARCHITECTURE.md`](ARCHITECTURE.md)** | Technical design, inference router, sequence diagrams, and air-gapped security boundary |
 | **[`ESSENTIAL.md`](ESSENTIAL.md)** | Operational runbook, port assignments, Ollama setup, and troubleshooting cheatsheet |
+| **[`eval/BENCHMARK_RESULTS.md`](eval/BENCHMARK_RESULTS.md)** | Empirical benchmark: 4.0x AST granularity gain, 100% commit fidelity, 0B egress |
 | **[`hacktoberfest-week4-schedule.ics`](hacktoberfest-week4-schedule.ics)** | Direct Notion Calendar / Google Calendar sync for Week 4 milestones |
 
 ---
