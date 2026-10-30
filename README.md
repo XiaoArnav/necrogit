@@ -154,14 +154,6 @@ git log -n 5 -p | python3 app/cli.py --haunt
 
 ---
 
-## 🏁 The Grand Finale Roadmap
-
-![Week 4 Grand Finale Sprint Roadmap](assets/01-week4-roadmap-xiaohei.jpg)
-
-*Xiaohei hauling the countdown clock toward the October 31 deadline, continuing the shipped progression of Week 1 ([WildTrail](https://github.com/XiaoArnav/wildtrail)), Week 2 ([GhostLedger](https://github.com/XiaoArnav/ghostledger)), and Week 3 ([Compline](https://github.com/XiaoArnav/complineapp)).*
-
----
-
 ## 📚 Technical Documentation Index
 
 | Document | Purpose & Description |
