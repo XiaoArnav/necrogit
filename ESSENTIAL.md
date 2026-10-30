@@ -115,9 +115,11 @@ necrogit/
 ├── PRD.md                          # Product Requirements Document
 ├── ARCHITECTURE.md                 # System architecture, topology, and data flows
 ├── ESSENTIAL.md                    # Operational runbook and cheatsheet
-├── hacktoberfest-week4-schedule.ics# Notion / Google Calendar sprint schedule
+├── eval/                           # Empirical benchmark evaluation suite
+│   ├── benchmark.py                # Automated 25-deletion benchmark runner
+│   └── BENCHMARK_RESULTS.md        # Scientific evaluation report (recall & accuracy)
 ├── assets/
-│   └── 01-week4-roadmap-xiaohei.jpg# Ian Xiaohei conceptual sprint illustration
+│   └── 02-necrogit-seance-ofrenda-xiaohei.jpg # Ian Xiaohei concept illustration
 ├── app/                            # Application code (server, engine, archaeology)
 │   ├── server.py                   # Zero-dependency Python HTTP daemon
 │   ├── engine.py                   # Local Gemma 2 inference & fallback necromancer

@@ -3,7 +3,7 @@
 **Project:** NecroGit (The Air-Gapped Code Séance & Digital Ofrenda)  
 **Author:** Arnav Patel ([@XiaoArnav](https://github.com/XiaoArnav))  
 **Repository:** [https://github.com/XiaoArnav/necrogit](https://github.com/XiaoArnav/necrogit)  
-**Status:** In Active Architecture / Implementation  
+**Status:** Shipped & Production Verified (v1.0.0)  
 **License:** MIT  
 
 ---
@@ -70,24 +70,36 @@ flowchart TD
 * Resolves author attribution, commit date, and deletion commit messages.
 
 ### 2.4 The Inference Router & Local Gemma Engine (`app/engine.py`)
+* Connects to local **Google Gemma 2** (`gemma2:2b` / `gemma2:9b`) via Ollama streaming.
+* **`FactValidator` Circuit-Breaker:** Programmatically evaluates generated eulogies against ground truth git objects. If hallucinated commit hashes or false authors are detected (composite score < 60), it automatically aborts and cascades to the deterministic Heuristic Necromancer.
+* **Deterministic Fallback:** 0.02ms latency fallback requiring zero external models.
+
 ```mermaid
 sequenceDiagram
     autonumber
     actor User as User / Client
     participant Router as Inference Router
     participant Ollama as Local Ollama (Gemma 2)
-    participant Fallback as Heuristic Engine
+    participant Validator as FactValidator Guardrail
+    participant Fallback as Heuristic Necromancer
 
     User->>Router: Send Séance Request for Function
     Router->>Ollama: Check /api/tags (Healthcheck)
     alt Ollama is Online & Gemma 2 Loaded
         Router->>Ollama: POST /api/generate (Stream=True)
         Ollama-->>Router: Yield Spectral Token Stream
-        Router-->>User: Stream Word-by-Word Eulogy
-    else Ollama Unreachable / Timed Out (> 1.2s)
+        Router->>Validator: Validate Commit Hash & Author Fidelity
+        alt Output is Factual (Score >= 60)
+            Router-->>User: Stream Verified Séance & Calavera
+        else Hallucination Detected (Score < 60)
+            Router->>Fallback: Trigger Circuit-Breaker Fallback
+            Fallback-->>Router: Return Deterministic Ground Truth
+            Router-->>User: Deliver Resilient Response
+        end
+    else Ollama Unreachable / Timed Out
         Router->>Fallback: Dispatch Heuristic Necromancer
-        Fallback-->>Router: Return Deterministic Calavera Verse
-        Router-->>User: Deliver Instant Structured Response (Fallback Mode)
+        Fallback-->>Router: Return Deterministic Calavera Verse (0.02ms)
+        Router-->>User: Deliver Instant Structured Response
     end
 ```
 

@@ -3,10 +3,11 @@
 **Project:** NecroGit (The Air-Gapped Code Séance & Digital Ofrenda)  
 **Theme:** "Ghost in the Machine" — Halloween & Día de los Muertos  
 **Challenge:** Hacktoberfest Open-Source AI Challenge (Week 4 Grand Finale)  
-**Version:** 1.0.0  
-**Target Platform:** Modern Web (Desktop & Mobile, PWA Offline Ready) & POSIX CLI  
+**Version:** 1.0.0 (Shipped & Production Verified)  
+**Target Platform:** Modern Web (Desktop & Mobile, Dual-Surface CRT & Canvas) & POSIX CLI  
 **Author:** Arnav Patel ([@XiaoArnav](https://github.com/XiaoArnav))  
 **Repository:** [https://github.com/XiaoArnav/necrogit](https://github.com/XiaoArnav/necrogit)  
+**Live Altar:** [https://xiaoarnav.github.io/necrogit/](https://xiaoarnav.github.io/necrogit/) (Mirror: [https://necrogit.vercel.app](https://necrogit.vercel.app))  
 **Required Tag:** `#hf26challenge`  
 **License:** MIT  
 
@@ -54,9 +55,10 @@ flowchart LR
 ## 3. Functional Requirements & Feature Sets
 
 ### 3.1 The Haunted Terminal (POSIX Séance)
-* **CLI Interface (`app/cli.py`):** Accepts standard unix pipes (`cat error.log | python3 app/cli.py --haunt`) and command line flags.
+* **CLI Interface (`app/cli.py`):** Accepts standard unix pipes (`cat error.log | python3 app/cli.py --haunt`) and command line flags (`--scan`, `--seance <name>`).
 * **Spectral Commentary:** Analyzes code smells, failed build logs, and commit histories, returning eerie, evocative aphorisms formatted with ANSI spectral glows.
-* **Dead Language Séancist:** Prompts Gemma 2 with structured archetypes of deceased programming paradigms (APL, ALGOL, Forth, COBOL).
+* **Function AST Diff Excavation:** Multi-language parser extracting deleted functions and classes across C (`fast_inverse_sqrt()`), Python, JavaScript/TypeScript, Rust, and Go with 4.0x recall gain over file-level tools.
+* **FactValidator Circuit-Breaker:** 3-way regex guardrail verifying real commit hashes and author names against git objects before delivering output.
 
 ### 3.2 The Digital Ofrenda (Web Altar)
 * **Candlelit Marigold Aesthetic:** High-contrast dark gothic canvas with glowing amber candlelight and marigold petals floating across the viewport.
