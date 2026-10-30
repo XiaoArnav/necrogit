@@ -386,6 +386,7 @@ class NecroGitApp {
   async loadStatus() {
     try {
       const res = await fetch("/api/status");
+      if (!res.ok) throw new Error("Static mode");
       const data = await res.json();
       this.dom.repoName.textContent = data.repo_name || "Repository";
 
@@ -398,7 +399,10 @@ class NecroGitApp {
         this.dom.terminalMeta.textContent = "MODEL: HEURISTIC (OFFLINE AIR-GAP)";
       }
     } catch (e) {
-      this.dom.engineStatus.textContent = "Disconnected";
+      // Static GitHub Pages Demo Mode
+      this.dom.repoName.textContent = "necrogit (GitHub Pages Demo)";
+      this.dom.engineStatus.textContent = "Deterministic Necromancer (Client Demo)";
+      this.dom.terminalMeta.textContent = "MODEL: CLIENT-SIDE AIR-GAP (DEMO)";
     }
   }
 
@@ -411,27 +415,114 @@ class NecroGitApp {
 
     try {
       const res = await fetch("/api/graveyard");
+      if (!res.ok) throw new Error("Static mode");
       this.graveyard = await res.json();
-
-      const funcs = this.graveyard.deleted_functions || [];
-      const files = this.graveyard.deleted_files || [];
-      const total = funcs.length + files.length;
-
-      this.dom.entityCount.textContent = `${total} deceased artifacts`;
-      this.dom.totalLinesBuried.textContent = `${(this.graveyard.total_lines_buried || 0).toLocaleString()} lines`;
-
-      this.applyFilter();
-
-      // Automatically select the first entity if available
-      if (this.filteredItems.length > 0) {
-        this.selectEntity(this.filteredItems[0]);
-      }
     } catch (e) {
-      this.dom.graveyardList.innerHTML = `
-        <div class="empty-state">
-          <p>⚠️ Error excavating cemetery: ${e.message}</p>
-        </div>`;
+      // Fallback to rich embedded demo graveyard for GitHub Pages
+      this.graveyard = this.getStaticDemoGraveyard();
     }
+
+    const funcs = this.graveyard.deleted_functions || [];
+    const files = this.graveyard.deleted_files || [];
+    const total = funcs.length + files.length;
+
+    this.dom.entityCount.textContent = `${total} deceased artifacts`;
+    this.dom.totalLinesBuried.textContent = `${(this.graveyard.total_lines_buried || 0).toLocaleString()} lines`;
+
+    this.applyFilter();
+
+    // Automatically select the first entity if available
+    if (this.filteredItems.length > 0) {
+      this.selectEntity(this.filteredItems[0]);
+    }
+  }
+
+  getStaticDemoGraveyard() {
+    return {
+      repository: "necrogit (Demo Ofrenda)",
+      is_git_repository: true,
+      total_deceased_artifacts: 5,
+      total_lines_buried: 832,
+      deleted_files: [
+        {
+          entity_type: "file",
+          name: "FUTURE_ROADMAP.md",
+          file_path: "FUTURE_ROADMAP.md",
+          death_commit: "e0d6c58a",
+          death_author: "XiaoArnav",
+          death_date: "2026-10-29",
+          death_message: "chore: remove future roadmap from public repo",
+          birth_commit: "781f756e",
+          birth_author: "XiaoArnav",
+          birth_date: "2026-10-26",
+          lines_lost: 47,
+          resurrected_code: "# Future Roadmap (Locked into chat memory)\n- Option B: Ofrenda // Sovereign\n- Option C: Ghostwire // 1999",
+          resurrected_diff: "- # Future Roadmap\n- Option B: Ofrenda // Sovereign\n- Option C: Ghostwire // 1999"
+        },
+        {
+          entity_type: "file",
+          name: "billing_v1_deprecated.py",
+          file_path: "services/billing/legacy.py",
+          death_commit: "8a1b2c3d",
+          death_author: "InfraLead",
+          death_date: "2026-08-14",
+          death_message: "refactor: decommission XML billing gateway in favor of event stream",
+          birth_commit: "10293847",
+          birth_author: "Founder",
+          birth_date: "2024-01-10",
+          lines_lost: 342,
+          resurrected_code: "def process_legacy_soap_invoice(xml_payload):\n    # 342 lines of SOAP XML parsing\n    pass",
+          resurrected_diff: "- def process_legacy_soap_invoice(xml_payload):\n-     # 342 lines of SOAP XML parsing\n-     pass"
+        }
+      ],
+      deleted_functions: [
+        {
+          entity_type: "function",
+          name: "fast_inverse_sqrt()",
+          file_path: "src/game/q_math.c",
+          death_commit: "c51b980a",
+          death_author: "John Carmack",
+          death_date: "1999-12-10",
+          death_message: "refactor: replace magic constant 0x5f3759df with hardware SSE instruction",
+          birth_commit: "0001a11",
+          birth_author: "Gary Tarolli / Greg Walsh",
+          birth_date: "1995-04-12",
+          lines_lost: 16,
+          resurrected_code: "float Q_rsqrt( float number ) {\n    long i;\n    float x2, y;\n    const float threehalfs = 1.5F;\n\n    x2 = number * 0.5F;\n    y  = number;\n    i  = * ( long * ) &y;                       // evil floating point bit level hacking\n    i  = 0x5f3759df - ( i >> 1 );               // what the fuck?\n    y  = * ( float * ) &i;\n    y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration\n    return y;\n}",
+          resurrected_diff: "- float Q_rsqrt( float number ) {\n-     long i;\n-     float x2, y;\n-     const float threehalfs = 1.5F;\n-     i  = 0x5f3759df - ( i >> 1 );\n-     return y;\n- }"
+        },
+        {
+          entity_type: "function",
+          name: "rose_window_prism()",
+          file_path: "app/static/js/stellar-map.js",
+          death_commit: "ea99b114",
+          death_author: "XiaoArnav",
+          death_date: "2026-10-23",
+          death_message: "refactor: delete over-engineered volumetric stained-glass god-ray lighting engine",
+          birth_commit: "1f05c01",
+          birth_author: "XiaoArnav",
+          birth_date: "2026-10-21",
+          lines_lost: 385,
+          resurrected_code: "function renderRoseWindowPrism(ctx, time) {\n    for (let ray = 0; ray < 128; ray++) {\n        const angle = (ray / 128) * Math.PI * 2 + time * 0.001;\n        ctx.strokeStyle = `hsla(${ray * 2.8}, 80%, 65%, 0.12)`;\n        ctx.beginPath();\n        ctx.moveTo(centerX, centerY);\n        ctx.lineTo(centerX + Math.cos(angle) * radius, centerY + Math.sin(angle) * radius);\n        ctx.stroke();\n    }\n}",
+          resurrected_diff: "- function renderRoseWindowPrism(ctx, time) {\n-     for (let ray = 0; ray < 128; ray++) {\n-         ctx.stroke();\n-     }\n- }"
+        },
+        {
+          entity_type: "class",
+          name: "LegacyBBSDialer",
+          file_path: "telecom/modem_v32.py",
+          death_commit: "4e99a12f",
+          death_author: "Sysop",
+          death_date: "2003-08-14",
+          death_message: "chore: decommission 56k dial-up Hayes AT command modem carrier line",
+          birth_commit: "1098ef0",
+          birth_author: "Sysop",
+          birth_date: "1996-03-02",
+          lines_lost: 42,
+          resurrected_code: "class LegacyBBSDialer:\n    def dial_carrier(self, baud=57600):\n        self.serial.write(b'ATDT 555-0199\\r')\n        response = self.serial.read_until(b'CONNECT')\n        return response",
+          resurrected_diff: "- class LegacyBBSDialer:\n-     def dial_carrier(self, baud=57600):\n-         return response"
+        }
+      ]
+    };
   }
 
   applyFilter() {
@@ -594,11 +685,45 @@ class NecroGitApp {
         }
       }
     } catch (e) {
-      this.dom.terminalBody.innerHTML += `\n\n⚠️ Spectral disruption: ${e.message}`;
+      // Fallback to client-side stream generator for GitHub Pages demo
+      await this.streamClientFallback(entity);
     } finally {
       this.isStreaming = false;
       this.dom.invokeSeanceBtn.disabled = false;
     }
+  }
+
+  async streamClientFallback(entity) {
+    this.dom.terminalStatus.textContent = `COMMUNING WITH: ${entity.name.toUpperCase()} (CLIENT SÉANCE)...`;
+    const eulogy = (
+      `🕯️ *[The screen flickers. Phosphor scanlines hum as the spirit materializes]*\n\n` +
+      `"Who disturbs the slumber of \`objects/${entity.death_commit.slice(0, 2)}/${entity.death_commit.slice(2)}\`?\n\n` +
+      `Ah... a living developer. Greetings from the git cemetery. I am the ghost of \`${entity.name}\`, ` +
+      `a proud ${entity.entity_type} that once breathed within \`${entity.file_path}\`.\n\n` +
+      `I was brought into this realm by ${entity.birth_author || 'The Ancestors'} in commit \`${entity.birth_commit || 'genesis'}\`. ` +
+      `I faithfully served in production, processing arguments, allocating memory, and catching faults. ` +
+      `Then arrived ${entity.death_date}. ${entity.death_author} entered the repository with malice aforethought.\n\n` +
+      `They claimed it was '${entity.death_message}'. One swift command, and ${entity.lines_lost} lines of hard-won logic ` +
+      `were vaporized into the git object abyss.\n\n` +
+      `💀 CALAVERA LITERARIA DE ${entity.name.toUpperCase().replace('()', '')}:\n\n` +
+      `  Aquí descansa ${entity.name}, en git sepultada,\n` +
+      `  Por la mano de ${entity.death_author} en \`${entity.death_commit}\` borrada.\n` +
+      `  La Catrina del linter llegó sin piedad,\n` +
+      `  ¡Y envió sus ${entity.lines_lost} líneas a la eternidad!\n\n` +
+      `Do not pity me, mortal. I am free from merge conflicts and circular dependencies now. ` +
+      `Place a virtual marigold (*cempasúchil*) on this terminal ofrenda, pour a sip of mezcal into your keyboard tray, ` +
+      `and promise me this: write your commit messages with honor, for La Catrina reads every diff!"`
+    );
+
+    const words = eulogy.split(" ");
+    for (let i = 0; i < words.length; i++) {
+      const chunk = words[i] + (i < words.length - 1 ? " " : "");
+      this.dom.terminalBody.appendChild(document.createTextNode(chunk));
+      this.dom.terminalBody.scrollTop = this.dom.terminalBody.scrollHeight;
+      this.audio.playKeyClick();
+      await new Promise(r => setTimeout(r, 22));
+    }
+    this.dom.terminalStatus.textContent = "SEANCE PROTOCOL // COMPLETE";
   }
 
   openCodeModal(entity, initialTab = "code") {
