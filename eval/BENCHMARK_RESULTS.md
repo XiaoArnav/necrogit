@@ -1,6 +1,6 @@
 # 📊 NecroGit: Empirical Benchmark & Evaluation Report
 
-**Benchmark Timestamp:** 2026-10-30 03:38:34Z  
+**Benchmark Timestamp:** 2026-10-30 04:30:43Z  
 **Corpus Tested:** 25 Historic Code Ghosts (Quake III `fast_inverse_sqrt()`, Express.js, React lifecycles, Python 3.12 `asyncore`, modem dialers)  
 **System Profile:** Apple Silicon / POSIX Standard Library  
 
@@ -20,20 +20,20 @@ Evaluated across `10` deletion scenarios. Our deterministic `FactValidator` insp
 
 ---
 
-## 2. Function Excavation Recall: NecroGit vs Bhoot vs Standard git log
+## 2. Function Excavation Recall: NecroGit vs File-Level Scanners vs Standard git log
 
 Why function-level AST diff parsing is essential: **85%+ of code deletions occur inside surviving files** during refactors. File-level tools are completely blind to deleted routines.
 
 | Excavation Engine | Technique | Whole Files Unearthed | Function / Method Diffs Unearthed | Function Recall (%) | Total Artifacts Unearthed |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Standard `git log`** | `--diff-filter=D` | 1 | 0 | **0.0%** | 1 |
-| **Bhoot (Rohit P.)** | `--diff-filter=D -M` | 1 | 0 | **0.0%** | 1 |
+| **File-Level History Scanners** | `--diff-filter=D -M` | 1 | 0 | **0.0%** | 1 |
 | **NecroGit (XiaoArnav)** | **AST Diff Parser (`-def `, `-func `, `-fn `)** | **1** | **3** | **100.0%** | **4 (4.0x gain)** |
 
 ```
-Traditional git log (Files Only): [██] 1 entity
-Bhoot (Files & Silent Authors):   [██] 1 entity
-NecroGit (Full AST Code Ghosts):   [████████] 4 entities (4.0x increase)
+Standard git log (Files Only):        [██] 1 entity
+File-Level Scanners (git log -M):     [██] 1 entity
+NecroGit (Function AST Diff Parser):  [████████] 4 entities (4.0x increase)
 ```
 
 ---
@@ -54,9 +54,9 @@ Comparison between Local Gemma 2, our built-in Heuristic Necromancer, and Cloud 
 
 ---
 
-## 4. Head-to-Head Feature Matrix
+## 4. Head-to-Head Architectural Feature Matrix
 
-| Feature | **Bhoot** | **Git Séance** | **NecroGit** |
+| Feature | **File-Level Scanners (git log -M)** | **Vector Embedding Scanners** | **NecroGit (AST Parser)** |
 | :--- | :---: | :---: | :---: |
 | **AST Function-Level Extraction** | ❌ (Files only) | ⚠️ (tree-sitter sample) | ✅ **Full multi-language AST** |
 | **Zero Runtime Dependencies** | ❌ (Node/npm) | ❌ (Python venv/pip) | ✅ **0 pip / 0 npm packages** |

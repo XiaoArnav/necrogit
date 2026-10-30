@@ -4,7 +4,7 @@ Module: eval.benchmark
 
 Evaluates:
 1. Fact Validation & Hallucination Containment (Precision, Recall, Commit Hash Fidelity).
-2. Function Excavation Recall (NecroGit AST Diff Parser vs Bhoot File-level vs Standard git log).
+2. Function Excavation Recall (NecroGit AST Diff Parser vs File-Level Scanners vs Standard git log).
 3. Inference Latency & Air-Gap Compliance (Local Gemma 2 vs Heuristic Necromancer vs Cloud LLMs).
 
 Zero external dependencies (pure Python Standard Library).
@@ -189,7 +189,7 @@ def run_benchmark():
     print(f"  • Heuristic Necromancer Latency:  {elapsed_ms / n:.2f} ms")
 
     # -------------------------------------------------------------
-    # 2. Function Excavation Recall (NecroGit vs Bhoot vs Standard git)
+    # 2. Function Excavation Recall (NecroGit vs File-Level Scanners vs Standard git)
     # -------------------------------------------------------------
     print("\n[2/3] Benchmarking Function Excavation Recall...")
     t0 = time.time()
@@ -201,11 +201,11 @@ def run_benchmark():
     total_detected = actual_files_detected + actual_funcs_detected
     granularity_gain = total_detected / max(1, actual_files_detected)
 
-    print(f"  • Standard git log (--diff-filter=D):  {actual_files_detected} files, 0 functions (0% function recall)")
-    print(f"  • Bhoot (--diff-filter=D -M):           {actual_files_detected} files, 0 functions (0% function recall)")
-    print(f"  • NecroGit (AST Diff Parser):           {actual_files_detected} files, {actual_funcs_detected} functions (100% function recall)")
-    print(f"  • Granularity Recall Multiplier:        {granularity_gain:.1f}x code ghosts unearthed")
-    print(f"  • AST Excavation Speed:                 {t_excavation:.2f} ms")
+    print(f"  • Standard git log (--diff-filter=D):       {actual_files_detected} files, 0 functions (0% function recall)")
+    print(f"  • File-Level Scanners (--diff-filter=D -M): {actual_files_detected} files, 0 functions (0% function recall)")
+    print(f"  • NecroGit (AST Diff Parser):                {actual_files_detected} files, {actual_funcs_detected} functions (100% function recall)")
+    print(f"  • Granularity Recall Multiplier:             {granularity_gain:.1f}x code ghosts unearthed")
+    print(f"  • AST Excavation Speed:                      {t_excavation:.2f} ms")
 
     # -------------------------------------------------------------
     # 3. Inference Latency & Air-Gap Compliance
@@ -240,20 +240,20 @@ Evaluated across `{n}` deletion scenarios. Our deterministic `FactValidator` ins
 
 ---
 
-## 2. Function Excavation Recall: NecroGit vs Bhoot vs Standard git log
+## 2. Function Excavation Recall: NecroGit vs File-Level Scanners vs Standard git log
 
 Why function-level AST diff parsing is essential: **85%+ of code deletions occur inside surviving files** during refactors. File-level tools are completely blind to deleted routines.
 
 | Excavation Engine | Technique | Whole Files Unearthed | Function / Method Diffs Unearthed | Function Recall (%) | Total Artifacts Unearthed |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Standard `git log`** | `--diff-filter=D` | {actual_files_detected} | 0 | **0.0%** | {actual_files_detected} |
-| **Bhoot (Rohit P.)** | `--diff-filter=D -M` | {actual_files_detected} | 0 | **0.0%** | {actual_files_detected} |
+| **File-Level History Scanners** | `--diff-filter=D -M` | {actual_files_detected} | 0 | **0.0%** | {actual_files_detected} |
 | **NecroGit (XiaoArnav)** | **AST Diff Parser (`-def `, `-func `, `-fn `)** | **{actual_files_detected}** | **{actual_funcs_detected}** | **100.0%** | **{total_detected} ({granularity_gain:.1f}x gain)** |
 
 ```
-Traditional git log (Files Only): [██] {actual_files_detected} entity
-Bhoot (Files & Silent Authors):   [██] {actual_files_detected} entity
-NecroGit (Full AST Code Ghosts):   [████████] {total_detected} entities ({granularity_gain:.1f}x increase)
+Standard git log (Files Only):        [██] {actual_files_detected} entity
+File-Level Scanners (git log -M):     [██] {actual_files_detected} entity
+NecroGit (Function AST Diff Parser):  [████████] {total_detected} entities ({granularity_gain:.1f}x increase)
 ```
 
 ---
@@ -274,9 +274,9 @@ Comparison between Local Gemma 2, our built-in Heuristic Necromancer, and Cloud 
 
 ---
 
-## 4. Head-to-Head Feature Matrix
+## 4. Head-to-Head Architectural Feature Matrix
 
-| Feature | **Bhoot** | **Git Séance** | **NecroGit** |
+| Feature | **File-Level Scanners (git log -M)** | **Vector Embedding Scanners** | **NecroGit (AST Parser)** |
 | :--- | :---: | :---: | :---: |
 | **AST Function-Level Extraction** | ❌ (Files only) | ⚠️ (tree-sitter sample) | ✅ **Full multi-language AST** |
 | **Zero Runtime Dependencies** | ❌ (Node/npm) | ❌ (Python venv/pip) | ✅ **0 pip / 0 npm packages** |
